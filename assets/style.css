@@ -30,10 +30,38 @@ section{
     margin: 20px 0;
 }
 
-.explore-products-btn {
+.explore-products-btn, .add-to-cart{
     background-color: #3949ab;
     color: #fff;
     text-decoration: none;
     padding: 10px 20px;
+    border: none;
     border-radius: 50px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    width: 30%;
+    background-color: #fff;
+    border-radius: 15px;
+    line-height: 10px;
+}
+
+.product h3{
+    color: #3949ab;
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    padding: 20px;
+    background-color: #3949ab;
+    color: #fff;
 }
