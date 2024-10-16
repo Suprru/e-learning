@@ -1,3 +1,39 @@
 body{
-    background-color: aqua;
+    background-color: #e0e0f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 150px;
+    background-color: #3545ab;
+}
+
+nav a {
+    color: #FFF;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+section{
+    margin: 20px 0;
+}
+
+.explore-products-btn {
+    background-color: #3949ab;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
 }
