@@ -11,6 +11,8 @@ new Vue({
             {id: 7, subject: 'English', location: 'United Kingdom', price: 95, space:5},
         ],
         cart: [],
+        sortKey: 'subject',
+        sortOrder: 'asc',
         name_: '',
         phone: '',
         validName: false,
@@ -24,6 +26,28 @@ new Vue({
         this.updateCourseSpaces();
     },
     computed: {
+        sortedCourses() {
+            let sorted = [...this.courses];
+
+            sorted.sort((a, b) => {
+                let modifier = 1;
+
+                if(this.sortOrder === 'desc') {
+                    modifier = -1;
+                }
+
+                if(this.sortKey === 'price' || this.sortKey === 'space') {
+                    return (a[this.sortKey] - b[this.sortKey]) * modifier;
+                } else {
+                    let aValue = a[this.sortKey].toLowerCase();
+                    let bValue = b[this.sortKey].toLowerCase();
+                    if (aValue < bValue) return -1 * modifier;
+                    if (aValue > bValue) return 1 * modifier;
+                    return 0;
+                }
+            });
+            return sorted;
+        },
         totalPrice() {
             return this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         }

@@ -19,12 +19,27 @@
         </header>
         <section>
             <h2>List of Lessons</h2>
+            <div>
+                <label for="sort">Sort By:</label>
+                <select v-model="sortKey" name="sortKey" class="sort">
+                    <option value="subject">Subject</option>
+                    <option value="price">Price</option>
+                    <option value="location">Location</option>
+                    <option value="space">Space</option>
+                </select>
+
+                <label for="order">Order By:</label>
+                <select v-model="sortOrder" name="sortOrder" class="order">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
             <div class="list">
-                <div v-for="course in courses" :key="course.id" class="product">
+                <div v-for="course in sortedCourses" :key="course.id" class="product">
                     <h3>{{course.subject}}</h3>
                     <p>{{course.location}} <span class="price">￡{{course.price}}</span></p>
                     <p>Availabilty: <span>{{course.space}}</span></p>
-                    <button 
+                    <button
                         v-bind:class="{'disabled': course.space === 0}" 
                         type="button" 
                         class="add-to-cart" 
