@@ -22,12 +22,15 @@
                 Your Cart is Empty!
             </div>
             <div v-else>
-                <div v-for="course in cart" :key="course" class="product">
+                <div v-for="course in cart" :key="course.id" class="product">
                     <h3>{{course.subject}}</h3>
-                    <p>{{course.location}} <span class="price">{{course.price}}</span></p>
+                    <p>{{course.location}} <span class="price">￡{{course.price}}</span></p>
                     <p>Availabilty: <span>{{course.space}}</span></p>
                     <button type="button" class="add-to-cart" @click="removeItemFromCart(course)">Remove</button>
                 </div>
+            </div>
+            <div class="total">
+                <h3>Total:<span> {{total}} </span></h3>
             </div>
         </section>
         <footer>

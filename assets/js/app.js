@@ -9,7 +9,14 @@ new Vue({
             {id: 5, subject: 'CS50 2020', location: 'Kenya', price: 65, space: 5},
             {id: 6, subject: 'humanities', location: 'Japan', price: 45, space: 7},
         ],
-        cart: [5]
+        cart: [],
+        total: 0.0,
+    },
+    created() {
+        const storedCart = localStorage.getItem('cart');
+        if (storedCart) {
+            this.cart = JSON.parse(storedCart);
+        }
     },
     methods: {
         addToCart(param){

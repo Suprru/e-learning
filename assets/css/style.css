@@ -60,6 +60,10 @@ section{
     text-transform: capitalize;
 }
 
+div.total > h3 {
+    text-align: end;
+}
+
 footer {
     text-align: center;
     margin-top: 35px;
