@@ -10,12 +10,16 @@ new Vue({
             {id: 6, subject: 'humanities', location: 'Japan', price: 45, space: 7},
         ],
         cart: [],
-        total: 0.0,
     },
     created() {
         const storedCart = localStorage.getItem('cart');
         if (storedCart) {
             this.cart = JSON.parse(storedCart);
+        }
+    },
+    computed: {
+        totalPrice() {
+            return this.cart.reduce((sum, item) => sum + item.price, 0);
         }
     },
     methods: {
