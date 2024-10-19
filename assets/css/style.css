@@ -11,6 +11,11 @@ body{
     padding: 20px;
 }
 
+.disabled {
+    background-color: #848696 !important;
+    pointer-events: none;
+}
+
 header{
     display: flex;
     justify-content: space-between;
@@ -64,9 +69,17 @@ div.total > h3 {
     text-align: end;
 }
 
+div.checkout{
+    float: right;
+}
+
+div.empty{
+    text-align: center;
+}
+
 footer {
     text-align: center;
-    margin-top: 35px;
+    margin-top: 75px;
     padding: 20px;
     background-color: #3949ab;
     color: #fff;

@@ -18,8 +18,8 @@
             </nav>
         </header>
         <section>
-            <div v-if="cart.length === 0">
-                Your Cart is Empty!
+            <div class="empty" v-if="cart.length === 0">
+                <h2>Your Cart is Empty!</h2>
             </div>
             <div v-else>
                 <div v-for="course in cart" :key="course.id" class="product">
@@ -31,7 +31,9 @@
             </div>
             <div class="total">
                 <h3>Total: ￡<span>{{totalPrice}} </span></h3>
-                <button type="button" @click="checkout(cart)" class="add-to-cart">Checkout</button>
+            </div>
+            <div class="checkout">
+                <button type="button" v-bind:class="{'disabled': cart.length === 0}" @click="checkout(cart)" class="add-to-cart">Checkout</button>
             </div>
         </section>
         <footer>
