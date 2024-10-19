@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - E Learning</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <header>
+            <h1>Checkout</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+            </nav>
+        </header>
+        <section>
+            <div class="empty" v-if="cart.length === 0">
+                <h2>Please view some of our lessons</h2>
+            </div>
+            <div v-else>
+                <h2>Order Summary</h2>
+                <div v-for="course in cart" :key="course.id" class="product">
+                    <h3>{{course.subject}}</h3>
+                    <p>{{course.location}} <span class="price">￡{{course.price}}</span></p>
+                    <p>Availabilty: <span>{{course.space}}</span></p>
+                </div>
+                <br>
+                <form @submit.prevent="completeOrder">
+                    <input 
+                        type="text" 
+                        name="name_" 
+                        id="name_" 
+                        v-model="name_" 
+                        placeholder="Your Name"
+                        @input="validateName"
+                        :class="{invalid: !validName && name_}"
+                    />
+                    <input 
+                        type="tel" 
+                        name="phone" 
+                        id="phone" 
+                        v-model="phone" 
+                        placeholder="Phone Number"
+                        @input="validatePhone"
+                        :class="{invalid: !validPhone && phone}"
+                    />
+                    <button
+                        type="submit"
+                        class="add-to-cart" 
+                        :class="{disabled: !validName || !validPhone}"
+                    >
+                        Checkout
+                    </button>
+                </form>
+            </div>
+        </section>
+        <footer>
+            <p>©️ 2024 Online Lessons. All rights reserved</p>
+        </footer>
+    </div>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

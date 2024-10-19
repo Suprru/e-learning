@@ -11,6 +11,10 @@ new Vue({
             {id: 7, subject: 'English', location: 'United Kingdom', price: 95, space: 0},
         ],
         cart: [],
+        name_: '',
+        phone: '',
+        validName: false,
+        validPhone: false
     },
     created() {
         const storedCart = localStorage.getItem('cart');
@@ -30,11 +34,25 @@ new Vue({
             alert(" added to cart!");   
         },
         checkout(param) {
-            console.log(param);
+            window.location = 'checkout.html';
         },
         removeItemFromCart(param) {
             this.cart = this.cart.filter(item => item.id !== param.id);
             localStorage.setItem('cart', JSON.stringify(this.cart));
+        },
+        validateName() {
+            const nameRegx = /^[a-zA-Z\s]+$/;
+            this.validName = nameRegx.test(this.name_)
+        },
+        validatePhone() {
+            const phoneRegx = /^[0-9]+$/;
+            this.validPhone = phoneRegx.test(this.phone)
+        },
+        completeOrder() {
+            alert(`Order Completed ${name_.value}`);
+            // any logic here
+            this.cart = []
+            console.log(name_.value, phone.value);
         }
     }
 })
