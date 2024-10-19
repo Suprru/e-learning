@@ -26,7 +26,7 @@
                 <div v-for="course in cart" :key="course.id" class="product">
                     <h3>{{course.subject}}</h3>
                     <p>{{course.location}} <span class="price">￡{{course.price}}</span></p>
-                    <p>Availabilty: <span>{{course.space}}</span></p>
+                    <p>Spaces Booked: <span>{{course.quantity}}</span></p>
                 </div>
                 <br>
                 <form @submit.prevent="completeOrder">

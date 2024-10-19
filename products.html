@@ -24,7 +24,14 @@
                     <h3>{{course.subject}}</h3>
                     <p>{{course.location}} <span class="price">￡{{course.price}}</span></p>
                     <p>Availabilty: <span>{{course.space}}</span></p>
-                    <button v-bind:class="{'disabled': course.space === 0}" type="button" class="add-to-cart" @click="addToCart(course)">Add to Cart</button>
+                    <button 
+                        v-bind:class="{'disabled': course.space === 0}" 
+                        type="button" 
+                        class="add-to-cart" 
+                        v-on:click="addToCart(course)"
+                    >
+                        Add to Cart
+                    </button>
                 </div>
             </div>
         </section>

@@ -77,7 +77,19 @@ div.empty{
     text-align: center;
 }
 
-/* .invalid  */
+input {
+    border: none;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+}
+
+.invalid {
+    outline: 1px solid red !important;
+    transition: ease-in-out 0.1s;
+}
 
 footer {
     text-align: center;

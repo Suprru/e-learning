@@ -25,8 +25,8 @@
                 <div v-for="course in cart" :key="course.id" class="product">
                     <h3>{{course.subject}}</h3>
                     <p>{{course.location}} <span class="price">￡{{course.price}}</span></p>
-                    <p>Availabilty: <span>{{course.space}}</span></p>
-                    <button type="button" class="add-to-cart" @click="removeItemFromCart(course)">Remove</button>
+                    <p>Spaces Booked: <span>{{course.quantity}}</span></p>
+                    <button type="button" class="add-to-cart" v-on:click="removeItemFromCart(course)">Remove</button>
                 </div>
             </div>
             <div class="total">
